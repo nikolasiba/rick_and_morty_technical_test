@@ -13,14 +13,14 @@ class NavigationPage extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
           onTap: (index) => navigationViewModel.changeOption(index),
           currentIndex: navigationViewModel.pageOption,
-          
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.people), label: 'Personajes'),
+                icon: Icon(Icons.person), label: 'Personajes'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.people), label: 'Personajes'),
+                icon: Icon(Icons.location_on_sharp), label: 'Locasiones'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.people), label: 'Personajes'),
+                icon: Icon(Icons.my_library_books_outlined),
+                label: 'Episodios'),
           ]),
     );
   }
