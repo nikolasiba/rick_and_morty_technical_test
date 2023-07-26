@@ -7,7 +7,12 @@ class LocationService {
 
   LocationService(this.iLocation);
 
-  Future<Either<NetworkException, dynamic>> getLocations() {
-    return iLocation.getLocations();
+  Future<Either<NetworkException, dynamic>> getLocations({required int index}) {
+    return iLocation.getLocations(index: index);
+  }
+
+  Future<Either<NetworkException, dynamic>> searchLocations(
+      {required int index, required String name}) {
+    return iLocation.searchLocations(index: index, name: name);
   }
 }

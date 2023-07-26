@@ -5,8 +5,13 @@ import 'package:rick_and_morty_app/rick_and_morty/presentation/locations/view/lo
 
 class NavigationViewModel with ChangeNotifier {
   int _pageOption = 0;
-
   int get pageOption => _pageOption;
+
+  final pages = [
+    const CharactersPage(),
+    const LocationsPage(),
+    const EpisodesPage()
+  ];
 
   void changeOption(int value) {
     _pageOption = value;

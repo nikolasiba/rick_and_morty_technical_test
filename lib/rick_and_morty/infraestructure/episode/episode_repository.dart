@@ -1,19 +1,17 @@
 import 'package:either_dart/either.dart';
-import 'package:rick_and_morty_app/rick_and_morty/domain/character/interface/i_character.dart';
+import 'package:rick_and_morty_app/rick_and_morty/domain/episode/interface/i_episode.dart';
 import 'package:rick_and_morty_app/rick_and_morty/infraestructure/data/remote/error/network_error.dart';
 import 'package:rick_and_morty_app/rick_and_morty/infraestructure/data/remote/network/network_api_service.dart';
 import 'package:rick_and_morty_app/shared/utils/const.dart';
 
-class CharacterRepository implements ICharacter {
-  
-
+class EpisodeRepository implements IEpisode {
   @override
-  Future<Either<NetworkException, dynamic>> getCharactersPage(
+  Future<Either<NetworkException, dynamic>> getEpisodes(
       {required int index}) async {
     var apiService = NetworkApiService();
     String url;
 
-    url = '${Constants.baseURL}${Constants.characterEndpoint}/?page=$index';
+    url = '${Constants.baseURL}${Constants.episodeEndpoint}/?page=$index';
 
     Either<NetworkException, dynamic> response =
         await apiService.getResponse(url);
@@ -22,13 +20,13 @@ class CharacterRepository implements ICharacter {
   }
 
   @override
-  Future<Either<NetworkException, dynamic>> searchCharacters(
+  Future<Either<NetworkException, dynamic>> searchEpisodes(
       {required String name, required int index}) async {
     var apiService = NetworkApiService();
     String url;
 
     url =
-        '${Constants.baseURL}${Constants.characterEndpoint}/?name=$name&page=$index';
+        '${Constants.baseURL}${Constants.episodeEndpoint}/?name=$name&page=$index';
 
     Either<NetworkException, dynamic> response =
         await apiService.getResponse(url);

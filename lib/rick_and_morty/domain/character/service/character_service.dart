@@ -7,7 +7,13 @@ class CharacterService {
 
   CharacterService(this.iCharacter);
 
-  Future<Either<NetworkException, dynamic>> getCharacters() {
-    return iCharacter.getCharacters();
+  Future<Either<NetworkException, dynamic>> getCharactersPage(
+      {required int index}) {
+    return iCharacter.getCharactersPage(index: index);
+  }
+
+  Future<Either<NetworkException, dynamic>> searchCharacters(
+      {required String name, required int index}) {
+    return iCharacter.searchCharacters(name: name, index: index);
   }
 }
